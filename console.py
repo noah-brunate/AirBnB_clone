@@ -49,6 +49,9 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         size = len(args)
+        if size ==0:
+            print("** class name missing **")
+            return
         if size == 2:
             arg1, arg2 = args
             obj_id = f"{arg1}.{arg2}"
@@ -60,8 +63,6 @@ class HBNBCommand(cmd.Cmd):
                 print(storage.all()[obj_id])
         elif size == 1:
             print("** instance id missing **")
-        else:
-            print("** class name missing **")
 
     def do_destroy(self, arg):
         """

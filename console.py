@@ -49,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
 
         size = len(arg)
         args = parse(arg)
-        if size ==0:
+        if size == 0:
             print("** class name missing **")
             return
         if size == 2:

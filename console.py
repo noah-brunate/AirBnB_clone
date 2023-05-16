@@ -47,14 +47,13 @@ class HBNBCommand(cmd.Cmd):
            an instance based on the class name and id
         """
 
-        args = arg.split()
-        size = len(args)
+        size = len(arg)
+        args = parse(arg)
         if size ==0:
             print("** class name missing **")
             return
         if size == 2:
-            arg1, arg2 = args
-            obj_id = f"{arg1}.{arg2}"
+            obj_id = f"{args[0]}.{args[1]}"
             if arg1 not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif obj_id not in [k for k in storage.all().keys()]:

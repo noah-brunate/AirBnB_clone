@@ -47,13 +47,11 @@ class HBNBCommand(cmd.Cmd):
            an instance based on the class name and id
         """
 
-        size = len(arg)
-        args = parse(arg)
-        if size == 0:
-            print("** class name missing **")
-            return
+        args = arg.split()
+        size = len(args)
         if size == 2:
-            obj_id = f"{args[0]}.{args[1]}"
+            arg1, arg2 = args
+            obj_id = f"{args1}.{args2}"
             if arg1 not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif obj_id not in [k for k in storage.all().keys()]:
@@ -62,6 +60,8 @@ class HBNBCommand(cmd.Cmd):
                 print(storage.all()[obj_id])
         elif size == 1:
             print("** instance id missing **")
+        else:
+            print("** class name missing **")
 
     def do_destroy(self, arg):
         """

@@ -20,7 +20,6 @@ class HBNBCommand(cmd.Cmd):
                   "City", "Amenity", "Place",
                   "Review"]
 
-
     def emptyline(self):
         """Overwrite default behavior to repeat last cmd"""
 
@@ -147,7 +146,13 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """Cleanly exits the interpreter"""
 
+        print()
         return True
+
+
+def parse(line):
+    """Helper method to parse user typed input"""
+    return tuple(line.split())
 
 
 if __name__ == '__main__':

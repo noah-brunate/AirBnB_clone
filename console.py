@@ -20,6 +20,12 @@ class HBNBCommand(cmd.Cmd):
                   "City", "Amenity", "Place",
                   "Review"]
 
+
+    def emptyline(self):
+        """Overwrite default behavior to repeat last cmd"""
+
+        pass
+
     def do_create(self, arg):
         """
             Creates a new instance of BaseModel,\
